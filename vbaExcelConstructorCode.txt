@@ -1,0 +1,15 @@
+Sub sqlCreator()
+
+Dim a As Integer
+Dim tbl As String
+a = 2
+
+While Not IsEmpty(Worksheets("export").Cells(a, 2))
+    tbl = Worksheets("export").Cells(a, 2).Value
+    Worksheets("export").Cells(a, 3) = "select distinct UDF1 from medgate_v60_app." & tbl & " where trim(UDF1) is not null order by UDF1"
+    a = a + 1
+
+Wend
+
+
+End Sub
